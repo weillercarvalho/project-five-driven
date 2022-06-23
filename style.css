@@ -1,0 +1,86 @@
+* {
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+@media (max-width: 375px) {
+    body{
+        background-color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+    }
+    main {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .entrada {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .logoentrada {
+        width: 130px;
+        height: 92px;
+        position: relative;
+        top: 72px;
+        left: 122px;
+    }
+    .inputentrada {
+        width: 261px;
+        height: 54px;
+        position: relative;
+        top: 258px;
+        left: 57px;
+        border: 1px solid #d7d7d7;
+        border-radius: 4px;
+    }
+    .inputentrada::placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .botaoentrada {
+        width: 109px;
+        height: 45px;
+        background-color: #e7e7e7;
+        border-radius: 9px;
+        position: relative;
+        top: 327px;
+        left: 133px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Roboto';
+        font-size: 18px;
+        font-weight: 400;
+        font-style: regular;
+
+    }
+    .botaoentrada:hover {
+        cursor: pointer;
+    }
+    .escondido {
+        display: none;
+    }
+    .carregamento {
+        position: relative;
+        top: 150px;
+        left: 52px;
+    }
+    .texto {
+        position: relative;
+        top: 100px;
+        left: 125px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        font-style: regular;
+    }
+    .header {
+        width: 100%;
+    }
+}
