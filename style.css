@@ -4,10 +4,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-@media (max-width: 375px) {
+body {
+    display: none;
+}
+
+@media (max-width: 375px) and (max-height: 667px) {
     body{
         background-color: #ffffff;
         font-family: 'Roboto', sans-serif;
+        display: flex;
     }
     main {
         width: 100%;
@@ -40,6 +45,8 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+        font-family: 'Roboto';
+        font-size: 18px;
     }
     .botaoentrada {
         width: 109px;
@@ -57,14 +64,16 @@
         font-size: 18px;
         font-weight: 400;
         font-style: regular;
+        color: gray;
 
     }
     .botaoentrada:hover {
         cursor: pointer;
     }
-    .escondido {
-        display: none;
+    .botaoentrada:active {
+        transform: scale(0.9);
     }
+
     .carregamento {
         position: relative;
         top: 150px;
@@ -80,7 +89,73 @@
         font-size: 24px;
         font-style: regular;
     }
+    .principal {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
     .header {
         width: 100%;
+        display: flex;
+        height: 80px;
+        position: fixed;
+        background-color: #ffffff;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+        top: 0px;
+        left: 0px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logoesquerda {
+        margin-left: 21px;
+    }
+    .logodireita {
+        margin-right: 21px;
+    }
+    .logodireita:active {
+        transform: scale(0.9);
+    }
+    .main {
+        width: 100%;
+        background-color: #f3f3f3;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 80px;
+        height: 507px;
+        
+    }
+    .footer {
+        display: flex;
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 80px;
+        background-color: #ffffff;
+        box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+        justify-content: center;
+        align-items: center;
+    }
+    .inputmsg {
+        width: 85%;
+        border: none;
+        
+    }
+    .inputmsg::placeholder {
+        font-family: 'Roboto';
+        font-style: italic;
+        color: #000000;
+        font-weight: 400;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        opacity: 1;
+    }
+    .logoenviar:active {
+        transform: scale(0.9);
+    }    
+    .escondido {
+        display: none;
     }
 }
