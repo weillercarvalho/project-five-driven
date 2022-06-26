@@ -112,6 +112,7 @@ body {
         left: 0px;
         justify-content: space-between;
         align-items: center;
+        z-index: 1;
     }
     .logoesquerda {
         margin-left: 21px;
@@ -161,7 +162,46 @@ body {
     }
     .logoenviar:active {
         transform: scale(0.9);
-    }    
+    }  
+    .timer {
+        color: #AAAAAA;
+    }  
+    .message {
+        background-color: #ffffff;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        line-height: 19px;
+        margin-bottom: 0.25rem;
+        padding: 0.5rem 0.5rem;
+        font-weight: 400;
+        font-size: 0.8rem;
+        word-wrap: break-word;
+    }
+    .status {
+        background-color: #dcdcdc;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        line-height: 19px;
+        margin-bottom: 0.25rem;
+        padding: 0.5rem 0.5rem;
+        font-weight: 400;
+        font-size: 0.8rem;
+        word-wrap: break-word;
+    }
+    .private_message {
+        background-color: #ffdede;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        line-height: 19px;
+        margin-bottom: 0.25rem;
+        padding: 0.5rem 0.5rem;
+        font-weight: 400;
+        font-size: 0.8rem;
+        word-wrap: break-word;
+    }
     .escondido {
         display: none;
     }

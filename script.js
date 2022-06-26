@@ -1,4 +1,5 @@
-let clique, cliqueDois, cliqueTres, newinput, lista, fim;
+let lista = [];
+let clique, cliqueDois, cliqueTres, newinput, fim, enviardados, enviarmsg;
 setInterval(buscarNomeAPI,3000);
 enviarNomeAPI();
 
@@ -54,12 +55,32 @@ function iterarLista(lista) {
         if (i === (lista.length - 1)) {
             fim = "fim";
         }
-        
+        switch (lista[i].type) {
+            case "message":
+                main.innerHTML +=
+                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span>para</span> <span><strong>${lista[i].to}</strong></span> <span>: ${lista[i].text}</span></div>`;
+                break
+            case "status":
+                main.innerHTML +=
+                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span>: ${lista[i].text}</span></div>`;
+                break
+
+            case "private_message":
+                if(lista[i].to === newinput) {
+                    main.innerHTML +=
+                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span>reservadamente para</span> <span><strong>${lista[i].to}</strong></span> <span>: ${lista[i].text}</span></div>`;
+                }
+                break
+        }
+
     }
+    document.querySelector(`.fim`).scrollIntoView();
 }
 
+
+
 function enviarNomeAPI() {
-    const enviardados = {
+    enviardados = {
         name: `${newinput}`
     }
     const promisse = axios.post(`https://mock-api.driven.com.br/api/v6/uol/participants`, enviardados);
@@ -72,18 +93,21 @@ function entrar(index) {
     console.log(index);
 }
 
-// function nomerepetido(index) {
-//     console.log(index.response.status);
-//     if (index.response.status === 400) {
-//         newinput = prompt(`Escolha um nome diferente, este ja esta em uso.`);
-//         newinput;
-//         enviarNomeAPI();
-//     }
-// }
+function novoNome() {
+    newinput = prompt(`Digite um nome valido.`)
+}
+
+function nomerepetido(index) {
+    console.log(index.response.status);
+    if (index.response.status === 400) {
+        novoNome();
+        enviarNomeAPI();
+    }
+}
 
 function verificacaoAPI() {
     newinput;
-    const enviardados = {
+    enviardados = {
         name: `${newinput}`
     }
     const promisse = axios.post(`https://mock-api.driven.com.br/api/v6/uol/status`, enviardados);
@@ -91,3 +115,28 @@ function verificacaoAPI() {
 }
 
 setInterval(verificacaoAPI,5000);
+
+enviarmsg = document.querySelector(`textarea`);
+enviarmsg.addEventListener(`keypress`, (index) => {
+    if(index.key === "Enter") {
+        index.preventDefault();
+        enviarMsgAPI();
+    }
+})
+
+function enviarMsgAPI() {
+    const promisse = axios.post(`https://mock-api.driven.com.br/api/v6/uol/messages`, {
+        from: newinput,
+        to: "Todos",
+        text: enviarmsg.value,
+        type: "message"
+    })
+    enviarmsg.value= "";
+    promisse.then(() => {
+        const promisse = axios.get(`https://mock-api.driven.com.br/api/v6/uol/messages`);
+        promisse.then(listarNomes)
+    })
+    promisse.catch(() => {
+        window.location.reload();
+    })
+}
