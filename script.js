@@ -1,13 +1,14 @@
 let lista = [];
 let clique, cliqueDois, cliqueTres, newinput, fim, enviardados, enviarmsg, logos, sidebares, sidebarblack, people, privacy, enviarmsgdois;
-setInterval(buscarNomeAPI,3000);
-enviarNomeAPI();
 
 
 
 function clicarIniciar() {
     clique = document.querySelector(`.entrada`);
     cliqueDois = document.querySelector(`.entradadois`);
+    setInterval(buscarNomeAPI,3000);
+    setInterval(verificacaoAPI,5000);
+    enviarNomeAPI();
     if (clique !== undefined) {
         clique.classList.add(`escondido`);
         cliqueDois.classList.remove(`escondido`);
@@ -35,11 +36,12 @@ function sidebar() {
     }
 }
 
-function sidebargranted() {
-    addEventListener(`click`, () => {
-        iterarLista().stopPropagation();
-        buscarNomeAPI().preventDefault();
-    })
+function sidebargranteddois() {
+    addEventListener(`click`, sidebargranted);
+}
+
+function sidebargranted(index) {
+        index.stopPropagation();    
 }
 
 function sidebarshow() {
@@ -79,7 +81,7 @@ function enviarNome() {
         newinput = input;
     } else {
         alert (`Espaco em branco invalido, digite um nome.`)
-        location.reload();
+        window.location.reload();
     }
 }
 
@@ -90,10 +92,11 @@ function buscarNomeAPI() {
 
 function listarNomes(index) {
     lista = index.data;
+    console.log(index, lista);
     iterarLista(lista);
 }
 
-function iterarLista(lista) {
+function iterarLista() {
     const main = document.querySelector(`.main`);
     main.innerHTML = "";
     fim = "";
@@ -139,14 +142,10 @@ function entrar(index) {
     console.log(index);
 }
 
-function novoNome() {
-    newinput = prompt(`Digite um nome valido.`)
-}
-
 function nomerepetido(index) {
     console.log(index.response.status);
     if (index.response.status === 400) {
-        novoNome();
+        newinput = prompt(`Digite um nome valido.`);
         enviarNomeAPI();
     }
 }
@@ -160,7 +159,7 @@ function verificacaoAPI() {
 
 }
 
-setInterval(verificacaoAPI,5000);
+
 
 enviarmsg = document.querySelector(`textarea`);
 enviarmsg.addEventListener(`keypress`, (index) => {
