@@ -1,5 +1,5 @@
 let lista = [];
-let clique, cliqueDois, cliqueTres, newinput, fim, enviardados, enviarmsg, logos, sidebares, sidebarblack, people, privacy;
+let clique, cliqueDois, cliqueTres, newinput, fim, enviardados, enviarmsg, logos, sidebares, sidebarblack, people, privacy, enviarmsgdois;
 setInterval(buscarNomeAPI,3000);
 enviarNomeAPI();
 
@@ -33,6 +33,13 @@ function sidebar() {
     if (logos !== undefined) {
         sidebares.classList.remove(`escondido`);
     }
+}
+
+function sidebargranted() {
+    addEventListener(`click`, () => {
+        iterarLista().stopPropagation();
+        buscarNomeAPI().preventDefault();
+    })
 }
 
 function sidebarshow() {
@@ -162,6 +169,15 @@ enviarmsg.addEventListener(`keypress`, (index) => {
         enviarMsgAPI();
     }
 })
+
+function cliques() {
+    enviarmsgdois = document.querySelector(`.logoenviar`);
+    if(enviarmsgdois !== undefined) {
+        enviarMsgAPI();
+    }
+
+}
+
 
 function enviarMsgAPI() {
     const promisse = axios.post(`https://mock-api.driven.com.br/api/v6/uol/messages`, {
