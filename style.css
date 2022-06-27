@@ -202,6 +202,121 @@ body {
         font-size: 0.8rem;
         word-wrap: break-word;
     }
+    .sidebar {
+        display: flex;
+        width: 100%;
+    }
+    .sidebar-black {
+        width: 116px;
+        height: 667px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-color: black;
+        opacity: 0.7;
+        z-index: 2;
+    }
+    .sidebar-white {
+        width: 259px;
+        height: 667px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background-color: white;
+        z-index: 2;
+    }
+    .contatomsg {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .textocontato {
+        width: 100%;
+        height: 84px;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+    .iconcontato {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    .span1, .span2, .span3 {
+        margin-left: 0.3rem;
+        margin-right: 0.3rem;
+    }
+    .visibilidade {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .visibilidadetexto {
+        width: 100%;
+        height: 66px;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        top: 199px;
+    }
+    .iconvisibilidade {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .publico {
+        display: flex;
+        position: relative;
+        top: 170px;
+        left: 25px;
+        width: 100%;
+    }
+    .publico:hover {
+        cursor: pointer;
+    }
+    .reservadamente {
+        display: flex;
+        position: relative;
+        top: 180px;
+        left: 25px;
+        width: 100%;
+    }
+    .reservadamente:hover {
+        cursor: pointer;
+    }
+    ion-icon {
+        display: none;
+    }
+    .aparecer ion-icon {
+        color: #32b72f;
+        display: initial;
+        z-index: 1;
+    }
+
+
+
+
+
+
+
     .escondido {
         display: none;
     }

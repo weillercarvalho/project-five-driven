@@ -26,15 +26,38 @@
             <div class="principal escondido">
                 <div class="header">
                     <div class="logoesquerda"><img src="./images/logo 1.png"></div>
-                    <div class="logodireita"><img src="./images/people 1.png"></div>
+                    <div class="logodireita"><img onclick="sidebarshow()" src="./images/people 1.png"></div>
                 </div>
                 <div class="main"></div>
                 <div class="footer">
                     <textarea class="inputmsg" type="text" placeholder="Escreva aqui..."></textarea>
                     <div class="logoenviar"><img src="./images/Vector.png"></div>
                 </div>
+            </div>    
+            <div class="sidebar escondido">
+                <div class="sidebar-black" onclick="escondernovamente()"></div>
+                <div class="sidebar-white">
+                    <div class="contatomsg">
+                        <div class="textocontato">Escolha um contato para enviar mensagem:</div>
+                        <div class="iconcontato">
+
+                        </div>
+                    </div>
+                    <div class="visibilidade">
+                        <div class="visibilidadetexto">Escolha a visibilidade</div>
+                        <div class="iconvisibilidade">
+                            <div class="publico" onclick="check()">
+                                <img src="./images/lock-open 1.png"> Publico <ion-icon name="checkmark-outline"></ion-icon>
+                            </div>
+                            <div class="reservadamente" onclick="check2()">
+                                <img src="./images/lock-closed 1.png"> Reservadamente <ion-icon name="checkmark-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     </body>

@@ -1,5 +1,5 @@
 let lista = [];
-let clique, cliqueDois, cliqueTres, newinput, fim, enviardados, enviarmsg;
+let clique, cliqueDois, cliqueTres, newinput, fim, enviardados, enviarmsg, logos, sidebares, sidebarblack, people, privacy;
 setInterval(buscarNomeAPI,3000);
 enviarNomeAPI();
 
@@ -24,6 +24,45 @@ function tresTempos() {
     if (cliqueDois !== undefined) {
         cliqueDois.classList.add(`escondido`);
         cliqueTres.classList.remove(`escondido`);
+    }
+}
+
+function sidebar() {
+    logos = document.querySelector(`.logodireita`);
+    sidebares = document.querySelector(`.sidebar`);
+    if (logos !== undefined) {
+        sidebares.classList.remove(`escondido`);
+    }
+}
+
+function sidebarshow() {
+    setTimeout(sidebar,500);
+}
+
+function escondernovamente() {
+    sidebarblack = document.querySelector(`.sidebar-black`);
+    if (sidebarblack !== undefined) {
+        sidebares.classList.add(`escondido`)
+    }
+}
+
+let count = 0;
+
+function check() {
+    people = document.querySelector(`.publico`);
+    privacy = document.querySelector(`.reservadamente`);
+    if (count === 0) {
+        people.classList.add(`aparecer`);
+        privacy.classList.remove(`aparecer`);
+        count++;
+    }
+}
+
+function check2() {
+    if(count !== 0) {
+        privacy.classList.add(`aparecer`);
+        people.classList.remove(`aparecer`);
+        count--;
     }
 }
 
@@ -58,7 +97,7 @@ function iterarLista(lista) {
         switch (lista[i].type) {
             case "message":
                 main.innerHTML +=
-                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span>para</span> <span><strong>${lista[i].to}</strong></span> <span>: ${lista[i].text}</span></div>`;
+                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span class="span1">para</span> <span><strong>${lista[i].to}</strong></span> <span>: ${lista[i].text}</span></div>`;
                 break
             case "status":
                 main.innerHTML +=
@@ -68,7 +107,7 @@ function iterarLista(lista) {
             case "private_message":
                 if(lista[i].to === newinput) {
                     main.innerHTML +=
-                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span>reservadamente para</span> <span><strong>${lista[i].to}</strong></span> <span>: ${lista[i].text}</span></div>`;
+                    `<div class="${lista[i].type} ${fim}"><span class="timer">(${lista[i].time})</span><span><strong>${lista[i].from}</strong></span> <span class="span2">reservadamente</span>  <span class="span3">para</span> <span><strong>${lista[i].to}</strong></span> <span>: ${lista[i].text}</span></div>`;
                 }
                 break
         }
